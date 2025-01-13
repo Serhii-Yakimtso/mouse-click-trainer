@@ -4,8 +4,9 @@ const startBtnElement = document.querySelector(".start-game");
 const deskElement = document.querySelector(".desk");
 const totalScoreElement = document.querySelector(".total-score");
 const clickCounterElement = document.querySelector(".click-counter");
-const bestElement = document.querySelector(".best");
-const worstElement = document.querySelector(".worst");
+const bestTimeElement = document.querySelector(".best");
+const worstTimeElement = document.querySelector(".worst");
+const meanTimeElement = document.querySelector(".mean");
 
 let clickCounter = 0;
 let maxCounter = 10;
@@ -85,6 +86,7 @@ function createDataElement() {
   console.log(timeArray);
   getBestResult();
   getWorstResult();
+  getMeanResult();
 }
 
 function startGame() {
@@ -95,8 +97,9 @@ function startGame() {
   clickCounterElement.textContent = clickCounter;
 
   timeArray = [];
-  bestElement.textContent = 0;
-  worstElement.textContent = 0;
+  bestTimeElement.textContent = 0;
+  worstTimeElement.textContent = 0;
+  meanTimeElement.textContent = 0;
 
   createTargetElement();
 
@@ -135,7 +138,7 @@ function getBestResult() {
     }
   }
 
-  bestElement.textContent = best;
+  bestTimeElement.textContent = best;
 }
 
 function getWorstResult() {
@@ -147,5 +150,17 @@ function getWorstResult() {
     }
   }
 
-  worstElement.textContent = worst;
+  worstTimeElement.textContent = worst;
+}
+
+function getMeanResult() {
+  let mean = 0;
+
+  for (let i = 0; i < timeArray.length; i++) {
+    mean += timeArray[i];
+  }
+
+  mean = mean / timeArray.length;
+
+  meanTimeElement.textContent = mean.toFixed(3);
 }
