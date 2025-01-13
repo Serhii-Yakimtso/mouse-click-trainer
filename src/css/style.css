@@ -3,13 +3,13 @@ p {
 }
 
 .main {
-  display: flex;
+  display: grid;
   gap: 12px;
+  grid-template-columns: 1fr 220px;
 }
 
 .game-table {
   position: relative;
-  width: 720px;
   height: 90vh;
 }
 

@@ -17,14 +17,14 @@ let totalScore = 0;
 
 let timeArray = [];
 
-hideElement(startBtnElement);
+hideElement();
 
 startBtnElement.addEventListener("click", startGame);
 
 // Скриваємо елемент при кліку
-function hideElement(element) {
-  element.addEventListener("click", (e) => {
-    element.classList.toggle("hide");
+function hideElement() {
+  startBtnElement.addEventListener("click", (e) => {
+    startBtnElement.classList.toggle("hide");
   });
 }
 
